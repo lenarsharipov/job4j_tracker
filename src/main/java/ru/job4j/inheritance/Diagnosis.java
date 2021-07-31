@@ -8,9 +8,6 @@ public class Diagnosis {
     private String birthday;
     private String symptoms;
 
-    public Diagnosis() {
-    }
-
     public Diagnosis(String name, String surname, String id, String birthday, String symptoms) {
         this.name = name;
         this.surname = surname;

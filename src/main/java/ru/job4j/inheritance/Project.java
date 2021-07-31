@@ -7,9 +7,6 @@ public class Project {
     private String task;
     private String deadLine;
 
-    public Project() {
-    }
-
     public Project(String company, String address, String task, String deadLine) {
         this.company = company;
         this.address = address;

@@ -4,9 +4,6 @@ public class Engineer extends Profession {
 
     private String id;
 
-    public Engineer() {
-    }
-
     public Engineer(String name, String surname, String education, String birthday, String id) {
         super(name, surname, education, birthday);
         this.id = id;

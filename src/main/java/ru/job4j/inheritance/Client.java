@@ -6,9 +6,6 @@ public class Client {
     private String address;
     private String task;
 
-    public Client() {
-    }
-
     public Client(String company, String address, String task) {
         this.company = company;
         this.address = address;

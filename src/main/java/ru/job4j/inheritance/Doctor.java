@@ -4,9 +4,6 @@ public class Doctor extends Profession {
 
     private String id;
 
-    public Doctor() {
-    }
-
     public Doctor(String name, String surname, String education, String birthday, String id) {
         super(name, surname, education, birthday);
         this.id = id;
