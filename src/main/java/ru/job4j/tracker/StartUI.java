@@ -10,6 +10,6 @@ public class StartUI {
         System.out.println("Текущие дата и время: " + currentDateTimeFormat);
 
         Item item2 = new Item(123, "item123");
-        System.out.println(item2.toString());
+        System.out.println(item2);
     }
 }
