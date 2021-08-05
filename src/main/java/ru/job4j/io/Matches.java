@@ -14,12 +14,23 @@ public class Matches {
             int matches = Integer.parseInt(input.nextLine());
             turn = !turn;
             /* Остальная логика игры. */
+            validate(input, player, matches);
             count -= matches;
         }
         if (!turn) {
             System.out.println("Выиграл первый игрок");
         } else {
             System.out.println("Выиграл второй игрок");
+        }
+    }
+
+    private static void validate(Scanner input, String player, int matches) {
+        if (matches < 1 || matches > 3) {
+            do {
+                System.out.println(player + ", вы ввели некорректное значение"
+                        + System.lineSeparator() + "введите число от 1 до 3:");
+                matches = Integer.parseInt(input.nextLine());
+            } while (matches < 1 || matches > 3);
         }
     }
 }
