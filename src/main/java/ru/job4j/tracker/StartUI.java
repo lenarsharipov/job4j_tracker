@@ -1,15 +1,20 @@
 package ru.job4j.tracker;
 
-import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class StartUI {
-    public static void main(String[] args) {
-        Item item = new Item();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
-        String currentDateTimeFormat = item.getCreated().format(formatter);
-        System.out.println("Текущие дата и время: " + currentDateTimeFormat);
 
-        Item item2 = new Item(123, "item123");
-        System.out.println(item2);
+    public void init(Scanner scanner, Tracker tracker) {
+
+    }
+
+    private void showMenu() {
+
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Tracker tracker = new Tracker();
+        new StartUI().init(scanner, tracker);
     }
 }
