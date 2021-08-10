@@ -25,5 +25,4 @@ public class ShowAllAction implements UserAction {
         }
         return true;
     }
-
 }
