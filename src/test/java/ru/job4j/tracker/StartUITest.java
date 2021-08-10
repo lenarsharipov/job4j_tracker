@@ -6,7 +6,6 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
-
     @Test
     public void whenCreateItem() {
         Output out = new StubOutput();
@@ -146,4 +145,5 @@ public class StartUITest {
                         + "0. Find item by ID" + System.lineSeparator()
                         + "1. Quit the program" + System.lineSeparator()));
     }
+
 }
