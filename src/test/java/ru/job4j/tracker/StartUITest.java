@@ -71,5 +71,4 @@ public class StartUITest {
                         + "0. Quit the program" + System.lineSeparator()
         ));
     }
-
 }

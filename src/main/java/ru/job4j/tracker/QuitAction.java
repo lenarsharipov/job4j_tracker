@@ -16,4 +16,5 @@ public class QuitAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         return false;
     }
+
 }
