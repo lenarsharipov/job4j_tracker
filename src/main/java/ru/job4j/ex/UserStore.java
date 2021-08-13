@@ -30,10 +30,10 @@ public class UserStore {
         try {
             User user = findUser(users, "Petr Arsentev");
             validate((user));
-        } catch (UserInvalidException e) {
-            e.printStackTrace();
-        } catch (UserNotFoundException e) {
-            e.printStackTrace();
+        } catch (UserInvalidException ui) {
+            ui.printStackTrace();
+        } catch (UserNotFoundException unf) {
+            unf.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
