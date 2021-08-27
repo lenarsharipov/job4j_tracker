@@ -7,11 +7,13 @@ public class Surgeon extends Doctor {
     }
 
     public Diagnosis excise(Patient patient) {
-        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(), patient.getBirthday(), patient.getSymptoms());
+        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(),
+                patient.getBirthday(), patient.getSymptoms());
     }
 
     public Diagnosis transplant(Patient patient) {
-        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(), patient.getBirthday(), patient.getSymptoms());
+        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(),
+                patient.getBirthday(), patient.getSymptoms());
     }
 
 }

@@ -18,15 +18,18 @@ public class Doctor extends Profession {
     }
 
     public Diagnosis chekUp(Patient patient) {
-        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(), patient.getBirthday(), patient.getSymptoms());
+        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(),
+                patient.getBirthday(), patient.getSymptoms());
     }
 
     public Diagnosis anesthetize(Patient patient) {
-        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(), patient.getBirthday(), patient.getSymptoms());
+        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(),
+                patient.getBirthday(), patient.getSymptoms());
     }
 
     public Diagnosis heal(Patient patient) {
-        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(), patient.getBirthday(), patient.getSymptoms());
+        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(),
+                patient.getBirthday(), patient.getSymptoms());
     }
 
 }

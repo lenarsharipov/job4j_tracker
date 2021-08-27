@@ -32,7 +32,8 @@ public class Library {
         for (int index = 0; index < array.length; index++) {
             if (array[index].getTitle().equals(title)) {
                 System.out.println("Title : " + array[index].getTitle() + System.lineSeparator()
-                                 + "Pages : " + array[index].getPageCount() + System.lineSeparator());
+                                 + "Pages : " + array[index].getPageCount()
+                                 + System.lineSeparator());
             }
         }
     }

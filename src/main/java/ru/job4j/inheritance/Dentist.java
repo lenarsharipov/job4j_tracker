@@ -7,11 +7,13 @@ public class Dentist extends Doctor {
     }
 
     public Diagnosis removeTeeth(Patient patient) {
-        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(), patient.getBirthday(), patient.getSymptoms());
+        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(),
+                patient.getBirthday(), patient.getSymptoms());
     }
 
     public Diagnosis fillCavity(Patient patient) {
-        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(), patient.getBirthday(), patient.getSymptoms());
+        return new Diagnosis(patient.getName(), patient.getSurname(), patient.getId(),
+                patient.getBirthday(), patient.getSymptoms());
     }
 
 }
