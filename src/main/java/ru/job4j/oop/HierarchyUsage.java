@@ -1,6 +1,7 @@
 package ru.job4j.oop;
 
 public class HierarchyUsage {
+
     public static void main(String[] args) {
         Car car = new Car();
         Transport tp = car;
@@ -10,4 +11,5 @@ public class HierarchyUsage {
         Object bicycle = new Bicycle();
         Car cb = (Car) bicycle;
     }
+
 }
