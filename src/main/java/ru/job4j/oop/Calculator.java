@@ -37,4 +37,5 @@ public class Calculator {
         result = c1.sumAllOperation(1);
         System.out.println(result);
     }
+
 }
