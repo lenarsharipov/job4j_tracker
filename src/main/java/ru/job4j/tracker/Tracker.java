@@ -30,14 +30,14 @@ public class Tracker {
     }
 
     public List<Item> findAll() {
-        return items;
+        return List.copyOf(items);
     }
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (Item val : items) {
-            if (val.getId() == id) {
-                rsl = val.getId() - 1;
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId() == id) {
+                rsl = index;
                 break;
             }
         }
