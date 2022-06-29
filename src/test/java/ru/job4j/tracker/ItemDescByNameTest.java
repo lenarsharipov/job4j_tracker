@@ -16,12 +16,13 @@ public class ItemDescByNameTest {
                 new Item(2, "ccc"),
                 new Item(3, "bbb")
         );
+        items.sort(new ItemDescByName());
         List<Item> expected = Arrays.asList(
                 new Item(2, "ccc"),
                 new Item(3, "bbb"),
                 new Item(1, "aaa")
         );
-        items.sort(new ItemDescByName());
         assertEquals(expected, items);
     }
+
 }
