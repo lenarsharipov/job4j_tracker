@@ -24,5 +24,4 @@ public class ItemDescByNameTest {
         );
         assertEquals(expected, items);
     }
-
 }

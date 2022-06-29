@@ -7,5 +7,4 @@ public class ItemDescByName implements Comparator<Item> {
     public int compare(Item left, Item right) {
         return right.getName().compareTo(left.getName());
     }
-
 }
