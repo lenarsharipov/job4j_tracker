@@ -16,20 +16,19 @@ public class ComputeIfPresent {
         Map<String, String> map = new HashMap<>();
         map.put("name", "Joan");
         map.computeIfPresent("name", (key, value) -> key + ", " + value);
-        System.out.println(map.get("name")); //output: name, Joan
+        System.out.println(map.get("name"));
 
         Map<String, String> map2 = new HashMap<>();
         map2.computeIfPresent("awesome key", (key, value) -> key + ", " + value);
-        System.out.println(map2.get("awesome key")); //output: null
+        System.out.println(map2.get("awesome key"));
 
         Map<String, String> map3 = new HashMap<>();
         map3.computeIfAbsent("awesome key", key -> key + ", " + "amazing value");
-        System.out.println(map3.get("awesome key")); //output: awesome key, amazing value
+        System.out.println(map3.get("awesome key"));
 
         Map<String, String> map4 = new HashMap<>();
         map4.put("awesome key", "cool value");
         map4.computeIfAbsent("awesome key", key -> key + ", " + "amazing value");
-        System.out.println(map4.get("awesome key")); //output: cool value
-
+        System.out.println(map4.get("awesome key"));
     }
 }
