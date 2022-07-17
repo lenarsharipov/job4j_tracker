@@ -4,11 +4,10 @@ import java.util.Comparator;
 
 public class DepDescComp implements Comparator<String> {
     @Override
-    public int compare(String left, String right) {
-        if (left.charAt(1) != right.charAt(1)) {
-            return right.compareTo(left);
-        }
-        return left.substring(1)
-                .compareTo(right.substring(1));
+    public int compare(String o1, String o2) {
+        String[] oo1 = o1.split("/");
+        String[] oo2 = o2.split("/");
+        int res = oo2[0].compareTo(oo1[0]);
+        return res == 0 ? o1.compareTo(o2) : res;
     }
 }
