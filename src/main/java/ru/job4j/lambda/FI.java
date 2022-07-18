@@ -10,12 +10,11 @@ public class FI {
                 new Attachment("image 2", 120),
                 new Attachment("image 3", 23)
         };
-        Comparator<Attachment> comparator = new Comparator<Attachment>() {
-            @Override
-            public int compare(Attachment left, Attachment right) {
-                return Integer.compare(left.getSize(), right.getSize());
-            }
+        Comparator<Attachment> comparator = (left, right) -> {
+            System.out.println("compare - " + left.getSize() + " : " + right.getSize());
+            return Integer.compare(left.getSize(), right.getSize());
         };
+
         Comparator<Attachment> comparator2 = (left, right) ->
                 Integer.compare(left.getSize(), right.getSize());
         Comparator<String> cmpSize = (left, right) ->
