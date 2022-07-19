@@ -12,11 +12,11 @@ public class FI {
         };
         Comparator<Attachment> comparator = (left, right) -> {
             System.out.println("compare - " + left.getSize() + " : " + right.getSize());
-            return Integer.compare(left.getSize(), right.getSize());
+            return Integer.compare(right.getSize(), left.getSize());
         };
 
         Comparator<Attachment> comparator2 = (left, right) ->
-                Integer.compare(right.getSize(), left.getSize());
+                Integer.compare(left.getSize(), right.getSize());
         Comparator<String> cmpSize = (left, right) ->
                 Integer.compare(left.length(), right.length());
         Comparator<String> cmpText = (left, right) ->
