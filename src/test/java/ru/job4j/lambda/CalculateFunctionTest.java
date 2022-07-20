@@ -34,4 +34,5 @@ public class CalculateFunctionTest {
         double[] expected = {0.5D, 1D, 2D, 4D};
         assertArrayEquals(rsl, expected, 0.01);
     }
+
 }
