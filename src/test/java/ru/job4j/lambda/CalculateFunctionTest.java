@@ -6,10 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertThat;
 
 public class CalculateFunctionTest {
-
     @Test
     public void whenLinearFunctionThenLinearResults() {
         CalculateFunction function = new CalculateFunction();
@@ -30,7 +30,8 @@ public class CalculateFunctionTest {
     public void whenExponentialFunctionThenExponentialResults() {
         CalculateFunction function = new CalculateFunction();
         List<Double> result = function.diapason(-1, 3, x -> Math.pow(2, x));
-        List<Double> expected = Arrays.asList(0.5D, 1D, 2D, 4D);
-        assertThat(result, is(expected));
+        double[] rsl = result.stream().mapToDouble(i -> i).toArray();
+        double[] expected = {0.5D, 1D, 2D, 4D};
+        assertArrayEquals(rsl, expected, 0.01);
     }
 }
