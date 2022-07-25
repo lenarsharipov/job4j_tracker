@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class PriorityQueueTest {
@@ -17,6 +18,6 @@ public class PriorityQueueTest {
         queue.put(new Task("urgent", 1));
         queue.put(new Task("middle", 3));
         Task result = queue.take();
-        assertThat(result.getDesc(), is("urgent"));
+        assertEquals(result.getDesc(), "urgent");
     }
 }
