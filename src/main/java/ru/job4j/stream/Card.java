@@ -18,10 +18,8 @@ public class Card {
     }
 
     public static void main(String[] args) {
-        List<Suit> suits = Stream.of(Suit.values()).toList();
-        List<Value> values = Stream.of(Value.values()).toList();
-        suits.stream()
-                .flatMap(suit -> values.stream()
+        Stream.of(Suit.values())
+                .flatMap(suit -> Stream.of(Value.values())
                         .map((value) -> new Card(suit, value)))
                 .forEach(System.out::println);
     }
