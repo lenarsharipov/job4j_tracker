@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Класс описывает работу простейшего банковского сервиса.
  * @author Lenar Sharipov
- * @version 1.0
+ * @version 1.01
  */
 public class BankService {
     /**
@@ -102,5 +102,4 @@ public class BankService {
         }
         return rsl;
     }
-
 }

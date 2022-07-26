@@ -43,4 +43,5 @@ public class College {
         Subject english = college.findBySubjectName("000001", "English");
         System.out.println("Оценка по найденному предмету: " + english.getScore());
     }
+
 }
