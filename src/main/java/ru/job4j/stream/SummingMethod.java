@@ -2,8 +2,6 @@ package ru.job4j.stream;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class SummingMethod {
 
@@ -57,14 +55,4 @@ public class SummingMethod {
             return bill;
         }
     }
-
-//    public static Map<String, Integer> summing(List<User> users) {
-////        return users.stream()
-////                .collect(Collectors.groupingBy(
-////                        user -> user.getBills(),
-////                        Collectors.summingInt(user -> user.)
-////                ));
-//        return new Map<String, Integer>;
-//    }
-
 }
