@@ -1,7 +1,9 @@
-package ru.job4j.stream;
+package ru.job4j.stream.exercise;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class SummingMethod {
 
@@ -55,4 +57,15 @@ public class SummingMethod {
             return bill;
         }
     }
+
+    public static Map<String, Integer> summing(List<User> users) {
+        return users.stream()
+                .map(user -> new Pair(user, new Bill(user.getBills()
+                        .stream().mapToInt(Bill::getBalance).sum())))
+                .collect(Collectors.groupingBy(
+                                    n -> n.getUser().getName(),
+                                    Collectors.summingInt(n -> n.getBill().getBalance())
+                ));
+    }
+
 }
