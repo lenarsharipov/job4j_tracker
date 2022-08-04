@@ -12,16 +12,15 @@ public class Analyze {
                 .flatMap(p -> p.subjects().stream())
                 .mapToInt(Subject::score)
                 .average()
-                .orElse(-1);
+                .orElse(0);
     }
 
     public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         return stream
-                .map(p -> new Tuple(p.name(), p.subjects()
-                                                    .stream()
-                                                    .mapToInt(Subject::score)
-                                                    .average()
-                                                    .orElse(-1)))
+                .map(p -> new Tuple(p.name(), p.subjects().stream()
+                                .mapToInt(Subject::score)
+                                .average()
+                                .orElse(0)))
                 .collect(Collectors.toList());
     }
 
@@ -40,10 +39,9 @@ public class Analyze {
 
     public static Tuple bestStudent(Stream<Pupil> stream) {
         return stream
-                .map(p -> new Tuple(p.name(), p.subjects()
-                                                    .stream()
-                                                    .mapToDouble(Subject::score)
-                                                    .sum()))
+                .map(p -> new Tuple(p.name(), p.subjects().stream()
+                            .mapToDouble(Subject::score)
+                            .sum()))
                 .max(Comparator.comparing(Tuple::score))
                 .orElse(null);
     }
@@ -52,7 +50,6 @@ public class Analyze {
         return stream.flatMap(s -> s.subjects().stream())
                 .collect(Collectors.groupingBy(
                         Subject::name,
-                        LinkedHashMap::new,
                         Collectors.summingDouble(
                                 Subject::score
                         )))
