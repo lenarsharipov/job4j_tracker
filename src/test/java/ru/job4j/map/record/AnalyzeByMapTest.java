@@ -24,7 +24,7 @@ class AnalyzeByMapTest {
                                         new Subject("Philosophy", 70)
                                 )
                         ),
-                        new Pupil("4Sidorov",
+                        new Pupil("Sidorov",
                                 List.of(
                                         new Subject("Math", 70),
                                         new Subject("Lang", 60),
