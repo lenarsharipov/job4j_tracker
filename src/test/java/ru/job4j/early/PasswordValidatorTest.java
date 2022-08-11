@@ -7,67 +7,82 @@ import static org.junit.jupiter.api.Assertions.*;
 class PasswordValidatorTest {
 
     @Test
-    void whenException() {
+    void whenNull() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
                 () -> PasswordValidator.validate(null));
-        assertEquals(exception.getMessage(), "Password cannot be null");
+        assertEquals(exception.getMessage(),
+                "Пароль не может содержать значение null");
     }
 
     @Test
     void whenInvalidLength() {
-        String password = "a1b2C3";
-        String rsl = PasswordValidator.validate(password);
-        String expected = "Длина пароля не находится в диапазоне [8, 32]";
-        assertEquals(rsl, expected);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> PasswordValidator.validate("a1b2C3"));
+        assertEquals(exception.getMessage(),
+                "Длина пароля не находится в диапазоне [8, 32]");
     }
 
     @Test
     void whenHasNoDigit() {
-        String password = "abacbcbB";
-        String rsl = PasswordValidator.validate(password);
-        String expected = "Пароль должен содержать хотя бы одну цифру";
-        assertEquals(rsl, expected);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> PasswordValidator.validate("abacbcbB"));
+        assertEquals(exception.getMessage(),
+                "Пароль должен содержать хотя бы одну цифру");
     }
 
     @Test
     void whenHasNoUpperCase() {
-        String password = "abacb5cbc";
-        String rsl = PasswordValidator.validate(password);
-        String expected = "Пароль должен содержать хотя бы один символ в верхнем регистре";
-        assertEquals(rsl, expected);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> PasswordValidator.validate("abacb5cbc"));
+        assertEquals(exception.getMessage(),
+                "Пароль должен содержать хотя бы один символ в верхнем регистре");
     }
 
     @Test
     void whenHasNoLowerCase() {
-        String password = "ABACB5!554";
-        String rsl = PasswordValidator.validate(password);
-        String expected = "Пароль должен содержать хотя бы один символ в нижнем регистре";
-        assertEquals(rsl, expected);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> PasswordValidator.validate("ABACB5!554"));
+        assertEquals(exception.getMessage(),
+                "Пароль должен содержать хотя бы один символ в нижнем регистре");
     }
 
     @Test
     void whenHasWhiteSpace() {
-        String password = "A BacB5!554";
-        String rsl = PasswordValidator.validate(password);
-        String expected = "Пароль не должен содержать пробелов";
-        assertEquals(rsl, expected);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> PasswordValidator.validate("A BacB5!554"));
+        assertEquals(exception.getMessage(),
+                "Пароль не должен содержать пробелов");
     }
 
     @Test
     void whenHasNoSpecialCase() {
-        String password = "ABacB5G554";
-        String rsl = PasswordValidator.validate(password);
-        String expected = "Пароль должен содержать хотя бы один специальный символ";
-        assertEquals(rsl, expected);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> PasswordValidator.validate("ABacB5G554"));
+        assertEquals(exception.getMessage(),
+                "Пароль должен содержать хотя бы один специальный символ");
     }
 
     @Test
     void whenHasIllegalSubString() {
-        String password = "ABacB5G554!AdMin";
-        String rsl = PasswordValidator.validate(password);
-        String expected = "Нельзя использовать варианты слов - admin, user, 12345, password";
-        assertEquals(rsl, expected);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> PasswordValidator.validate("ABacB5G554!AdMin"));
+        assertEquals(exception.getMessage(),
+                "Нельзя использовать варианты слов - admin, user, 12345, password");
     }
 
+    @Test
+    void whenValid() {
+        String password = "ABacB5G554!An";
+        String rsl = PasswordValidator.validate(password);
+        String expected = "Пароль соответствует условиям";
+        assertEquals(rsl, expected);
+    }
 }

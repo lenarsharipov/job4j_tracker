@@ -3,35 +3,51 @@ package ru.job4j.early;
 public class PasswordValidator {
     public static String validate(String password) {
         if (password == null) {
-            throw new IllegalArgumentException("Password cannot be null");
+            throw new IllegalArgumentException(
+                    "Пароль не может содержать значение null"
+            );
         }
 
         if (password.length() < 8 || password.length() > 32) {
-            return "Длина пароля не находится в диапазоне [8, 32]";
+            throw new IllegalArgumentException(
+                    "Длина пароля не находится в диапазоне [8, 32]"
+            );
         }
 
         if (!hasDigit(password)) {
-            return "Пароль должен содержать хотя бы одну цифру";
+            throw new IllegalArgumentException(
+                    "Пароль должен содержать хотя бы одну цифру"
+            );
         }
 
         if (!hasUpperCase(password)) {
-            return "Пароль должен содержать хотя бы один символ в верхнем регистре";
+            throw new IllegalArgumentException(
+                    "Пароль должен содержать хотя бы один символ в верхнем регистре"
+            );
         }
 
         if (!hasLowerCase(password)) {
-            return "Пароль должен содержать хотя бы один символ в нижнем регистре";
+            throw new IllegalArgumentException(
+                    "Пароль должен содержать хотя бы один символ в нижнем регистре"
+            );
         }
 
         if (hasWhiteSpace(password)) {
-            return "Пароль не должен содержать пробелов";
+            throw new IllegalArgumentException(
+                    "Пароль не должен содержать пробелов"
+            );
         }
 
         if (hasSpecialCase(password)) {
-            return "Пароль должен содержать хотя бы один специальный символ";
+            throw new IllegalArgumentException(
+                    "Пароль должен содержать хотя бы один специальный символ"
+            );
         }
 
-        if (hasSubString(password)) {
-            return "Нельзя использовать варианты слов - admin, user, 12345, password";
+        if (hasInvalidSubString(password)) {
+            throw new IllegalArgumentException(
+                    "Нельзя использовать варианты слов - admin, user, 12345, password"
+            );
         }
 
         return "Пароль соответствует условиям";
@@ -100,7 +116,7 @@ public class PasswordValidator {
         return rsl;
     }
 
-    private static boolean hasSubString(String password) {
+    private static boolean hasInvalidSubString(String password) {
         return password.toLowerCase().contains("qwerty")
                 || password.contains("12345")
                 || password.toLowerCase().contains("admin")
