@@ -33,5 +33,4 @@ public class ValidateInput implements Input {
         } while (invalid);
         return value;
     }
-
 }
