@@ -1,5 +1,6 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.store;
 
+import ru.job4j.tracker.Store;
 import ru.job4j.tracker.model.Item;
 
 import java.io.InputStream;
@@ -11,6 +12,14 @@ import java.util.Properties;
 public class SqlTracker implements Store, AutoCloseable {
 
     private Connection cn;
+
+    public SqlTracker() {
+
+    }
+
+    public SqlTracker(Connection connection) {
+        this.cn = connection;
+    }
 
     public void init() {
         try (InputStream in =
@@ -81,17 +90,21 @@ public class SqlTracker implements Store, AutoCloseable {
         return result;
     }
 
+    private Item createItem(ResultSet resultSet) throws SQLException {
+        return new Item(
+                resultSet.getInt("id"),
+                resultSet.getString("name"),
+                resultSet.getTimestamp("created").toLocalDateTime()
+        );
+    }
+
     @Override
     public List<Item> findAll() {
         List<Item> items = new ArrayList<>();
         try (PreparedStatement statement = cn.prepareStatement("select * from items")) {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    items.add(new Item(
-                            resultSet.getInt("id"),
-                            resultSet.getString("name"),
-                            resultSet.getTimestamp("created").toLocalDateTime()
-                    ));
+                    items.add(createItem(resultSet));
                 }
             }
         } catch (Exception e) {
@@ -108,11 +121,7 @@ public class SqlTracker implements Store, AutoCloseable {
             statement.setString(1, key);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    items.add(new Item(
-                            resultSet.getInt("id"),
-                            resultSet.getString("name"),
-                            resultSet.getTimestamp("created").toLocalDateTime()
-                    ));
+                    items.add(createItem(resultSet));
                 }
             }
         } catch (Exception e) {
@@ -123,15 +132,14 @@ public class SqlTracker implements Store, AutoCloseable {
 
     @Override
     public Item findById(int id) {
-        Item item = new Item(-1, "not found");
+        Item item = null;
         try (PreparedStatement statement =
                      cn.prepareStatement("select * from items where id = ?")) {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
-                resultSet.next();
-                item = new Item(resultSet.getInt("id"),
-                                   resultSet.getString("name"),
-                        resultSet.getTimestamp("created").toLocalDateTime());
+                if (resultSet.next()) {
+                    item = createItem(resultSet);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
