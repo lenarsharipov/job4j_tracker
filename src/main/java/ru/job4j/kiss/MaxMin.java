@@ -26,4 +26,5 @@ public class MaxMin {
         }
         return rsl;
     }
+
 }

@@ -59,4 +59,11 @@ class MaxMinTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Passed arguments illegal");
     }
+
+    @Test
+    void whenOneElementThenThisElementAsMinAndMax() {
+        List<Integer> list = List.of(1);
+        assertThat(maxMin.min(list, comparatorMin)).isEqualTo(1);
+        assertThat(maxMin.min(list, comparatorMax)).isEqualTo(1);
+    }
 }
