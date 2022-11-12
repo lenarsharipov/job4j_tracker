@@ -59,5 +59,4 @@ class MaxMinTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Passed arguments illegal");
     }
-
 }

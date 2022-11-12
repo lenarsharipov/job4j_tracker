@@ -17,6 +17,10 @@ public class MaxMin {
             throw new IllegalArgumentException("Passed arguments illegal");
         }
         var rsl = value.get(0);
+        if (value.size() == 1) {
+            return rsl;
+        }
+
         for (int i = 1; i < value.size(); i++) {
             rsl = comparator.compare(rsl, value.get(i)) > 0 ? rsl : value.get(i);
         }
