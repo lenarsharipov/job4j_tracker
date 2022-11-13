@@ -10,16 +10,13 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 class MaxMinTest {
-    private static Comparator<Integer> comparatorMax;
-    private static Comparator<Integer> comparatorMin;
+    private static Comparator<Integer> comparator;
     private static List<Integer> numbers;
     private static MaxMin maxMin;
 
     @BeforeAll
     public static void setUp() {
-        comparatorMax = Integer::compareTo;
-
-        comparatorMin = Comparator.reverseOrder();
+        comparator = Integer::compareTo;
 
         numbers = List.of(17, 1, 5, 6, 13, -15, 1, 39);
 
@@ -28,18 +25,18 @@ class MaxMinTest {
 
     @Test
     void whenFindMax() {
-        assertThat(maxMin.max(numbers, comparatorMax)).isEqualTo(39);
+        assertThat(maxMin.max(numbers, comparator)).isEqualTo(39);
     }
 
     @Test
     void whenFindMin() {
-        assertThat(maxMin.min(numbers, comparatorMin)).isEqualTo(-15);
+        assertThat(maxMin.min(numbers, comparator)).isEqualTo(-15);
     }
 
     @Test
     void whenEmptyListThenIllegalArgumentException() {
         List<Integer> list = new ArrayList<>();
-        assertThatThrownBy(() -> maxMin.min(list, comparatorMax))
+        assertThatThrownBy(() -> maxMin.min(list, comparator))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Passed arguments illegal");
     }
@@ -47,7 +44,7 @@ class MaxMinTest {
     @Test
     void whenNullListThenIllegalArgumentException() {
         List<Integer> list = null;
-        assertThatThrownBy(() -> maxMin.min(list, comparatorMax))
+        assertThatThrownBy(() -> maxMin.min(list, comparator))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Passed arguments illegal");
     }
@@ -55,7 +52,7 @@ class MaxMinTest {
     @Test
     void whenNullComparatorThenIllegalArgumentException() {
         Comparator<Integer> comp = null;
-        assertThatThrownBy(() -> maxMin.min(numbers, comp))
+        assertThatThrownBy(() -> maxMin.max(numbers, comp))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Passed arguments illegal");
     }
@@ -63,7 +60,7 @@ class MaxMinTest {
     @Test
     void whenOneElementThenThisElementAsMinAndMax() {
         List<Integer> list = List.of(1);
-        assertThat(maxMin.min(list, comparatorMin)).isEqualTo(1);
-        assertThat(maxMin.min(list, comparatorMax)).isEqualTo(1);
+        assertThat(maxMin.max(list, comparator)).isEqualTo(1);
+        assertThat(maxMin.min(list, comparator)).isEqualTo(1);
     }
 }
