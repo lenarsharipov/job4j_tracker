@@ -52,7 +52,7 @@ class MaxMinTest {
     @Test
     void whenNullComparatorThenIllegalArgumentException() {
         Comparator<Integer> comp = null;
-        assertThatThrownBy(() -> maxMin.max(numbers, comp))
+        assertThatThrownBy(() -> maxMin.min(numbers, comp))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Passed arguments illegal");
     }

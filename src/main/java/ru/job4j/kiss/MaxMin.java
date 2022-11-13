@@ -9,6 +9,9 @@ public class MaxMin {
     }
 
     public <T> T min(List<T> value, Comparator<T> comparator) {
+        if (comparator == null) {
+            throw new IllegalArgumentException("Passed arguments illegal");
+        }
         return compare(value, comparator.reversed());
     }
 
