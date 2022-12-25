@@ -1,6 +1,7 @@
 package ru.job4j.oop.inner;
 
 public class Car {
+    private static String carManual = "Инструкция к автомобилю";
     private String brand;
     private String model;
 
@@ -9,13 +10,14 @@ public class Car {
         this.model = model;
     }
 
-    public static TripComputer getTripComputer() {
-        Car car = new Car("Brand", "Model");
-        return car.new TripComputer();
-    }
-
     public void startEngine() {
         System.out.println("Двигатель запущен");
+    }
+
+    public static TripComputer getTripComputer() {
+        Car car = new Car("Brand", "Model");
+        Car.TripComputer tripComputer = car.new TripComputer();
+        return tripComputer;
     }
 
     public class Transmission {
@@ -37,6 +39,13 @@ public class Car {
         public void getInfo() {
             System.out.println("Модель TripComputer: " + this.model);
             System.out.println("Модель Car: " + Car.this.model);
+        }
+    }
+
+    public static class Manual {
+
+        public static String getManual() {
+            return carManual;
         }
     }
 }
