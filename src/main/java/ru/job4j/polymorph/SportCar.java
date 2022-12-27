@@ -1,6 +1,6 @@
 package ru.job4j.polymorph;
 
-public class SportCar implements Vehicle, Fuel {
+public class SportCar implements Vehicle {
 
     @Override
     public void changeGear() {
@@ -27,6 +27,11 @@ public class SportCar implements Vehicle, Fuel {
     @Override
     public void refill() {
         System.out.println("Заправить 100л бензина");
+    }
+
+    @Override
+    public void chargeBattery() {
+        System.out.println("Аккумулятор в багажнике. Зарядить.");
     }
 }
 
