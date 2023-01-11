@@ -26,7 +26,7 @@ public class DeleteAllItems implements UserAction {
             tracker.delete(integer);
         }
         out.println("=== Все заявки удалены ===");
-//        System.gc();
         return true;
     }
+
 }

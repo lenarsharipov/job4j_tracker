@@ -24,4 +24,5 @@ public class CreateManyItems implements UserAction {
         out.println("Добавлено заявок: " + count);
         return true;
     }
+
 }

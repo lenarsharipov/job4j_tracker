@@ -28,3 +28,4 @@ Live threads - 14.
 JVM выбросило иСключение java.lang.OutOfMemoryError: Java heap space и программа прекратила работу.
 При данном событии, значения Heap Usage, Thread, Classes обнулились.
 
+
