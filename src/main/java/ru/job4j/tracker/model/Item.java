@@ -8,20 +8,18 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class Item {
     private static final DateTimeFormatter FORMATTER
             = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     private int id;
+    @NonNull
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
-    public Item(String name) {
-        this.name = name;
-    }
-
-    public Item(int id, String name) {
+    public Item(int id, @NonNull String name) {
         this.id = id;
         this.name = name;
     }
