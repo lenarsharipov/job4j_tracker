@@ -9,6 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import java.util.List;
 
 public class HibernateRun {
+
     public static void main(String[] args) {
         /*
         SessionFactory - это объект конфигуратор. Он создается один раз на все приложение.
