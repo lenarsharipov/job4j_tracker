@@ -11,13 +11,18 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(onlyExplicitlyIncluded = true)
 public class Item {
+
     private static final DateTimeFormatter FORMATTER
             = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
     @EqualsAndHashCode.Include
+    @ToString.Include
     private int id;
 
     @EqualsAndHashCode.Include
+    @ToString.Include
     @NonNull
     private String name;
     private LocalDateTime created = LocalDateTime.now();
@@ -27,8 +32,9 @@ public class Item {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return String.format("id: %s, name: %s, created: %s", id, name, FORMATTER.format(created));
+    @ToString.Include
+    String created() {
+        return FORMATTER.format(created);
     }
+
 }
