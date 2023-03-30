@@ -25,6 +25,7 @@ public class Item {
     @ToString.Include
     @NonNull
     private String name;
+
     private LocalDateTime created = LocalDateTime.now();
 
     public Item(int id, @NonNull String name) {
