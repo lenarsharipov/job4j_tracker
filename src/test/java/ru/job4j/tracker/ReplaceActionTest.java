@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
-import ru.job4j.tracker.model.Item;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
